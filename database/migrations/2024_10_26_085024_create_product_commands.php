@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('product_commands', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constrained('products');
-            $table->unsignedInteger('index')->nullable(false);
-            $table->string('command')->nullable(false);
+            $table->unsignedInteger('index')->nullable();
+            $table->string('command')->nullable(true);
             $table->softDeletes();
             $table->timestamps();
         });
