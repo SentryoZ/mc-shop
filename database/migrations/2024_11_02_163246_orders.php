@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('player_name')->nullable();
             $table->string('player_email')->nullable();
             $table->string('payment_method')->nullable();
-            $table->bigInteger('price_total')->nullable();
+            $table->decimal('price_total', 10, 2)->nullable();
             $table->bigInteger('status')->nullable();
             $table->softDeletes();
             $table->timestamps();
