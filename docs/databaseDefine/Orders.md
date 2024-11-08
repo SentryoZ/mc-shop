@@ -13,7 +13,7 @@ Save data about the order of the player
 | player_name    | string     | true     |                              |      |
 | player_email   | string     | true     |                              |      |
 | payment_method | string     | true     |                              |      |
-| price_total    | bigInteger | true     | unsigned                     |      |
+| price_total    | decimal    | true     | unsigned                     |      |
 | status         | bigInteger | true     | unsigned                     |      |
 | deleted_at     | timestamp  | false    |                              |      |
 | created_at     | timestamp  | true     |                              |      |
