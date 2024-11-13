@@ -14,14 +14,14 @@
             <div class="col-md-4 d-flex align-items-center justify-content-center">
                 <div class="w-100" style="max-width: 400px;">
                     <h2 class="text-center mb-4 fw-bold">Create an Account</h2>
-                    <form action="/register" method="post">
+                    <form method="POST" action="{{ route('register.post') }}">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                                <input type="text" class="form-control" id="name" placeholder="Enter your full name"
-                                    required>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter your full name" required>
                                 @error('name')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -31,8 +31,8 @@
                             <label for="email" class="form-label">Email address</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email"
-                                    required>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Enter your email" required>
                                 @error('email')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -42,8 +42,8 @@
                             <label for="password" class="form-label">Password</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" class="form-control" id="password" placeholder="Create a password"
-                                    required>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Create a password" required>
                                 @error('password')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -53,7 +53,7 @@
                             <label for="confirm-password" class="form-label">Confirm Password</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" class="form-control" id="confirm-password"
+                                <input type="password" class="form-control" id="confirm-password" name="confirm-password"
                                     placeholder="Confirm your password" required>
                                 @error('confirm-password')
                                     <div class="text-danger">{{ $message }}</div>
