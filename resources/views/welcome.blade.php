@@ -1,81 +1,8 @@
-@extends('layouts.head')
+<x-layout>
+    <x-slot:title>
+        McShop
+    </x-slot>
 
-@section('title', 'McShop')
+    <x-hero />
 
-@section('content')
-    <nav class="navbar navbar-light bg-white fixed-top navbar-expand-lg shadow-sm" style="height: 99px;">
-        <div class="container-xxl">
-            <a class="navbar-brand" href="#">Logo</a>
-            <div class="navbar-collapse">
-                <ul class="navbar-nav ms-auto d-flex align-items-center gap-3">
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-light d-flex align-items-center justify-content-center"
-                            style="height: 32px;">Products</button>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-3" href="#">Community</a>
-                    </li>
-                    <li class="d-flex gap-2">
-                        <a href = "/login"
-                            class="btn btn-light btn-outline-dark px-4 py-2 rounded-3 d-flex justify-content-center align-items-center"
-                            style="height: 32px;">Sign in</a>
-                        <a href="/register"
-                            class="btn btn-dark px-4 py-2 rounded-3 d-flex justify-content-center align-items-center"
-                            style="height: 32px;">Register</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <footer class="footer mt-auto bg-white shadow-lg" style="position: absolute; left: 0; right: 0; bottom: 0;">
-        <div class="container-xxl pt-4 pb-5">
-            <div class="row">
-                <div class="col-md-3">
-                    <h6 class="fw-bold mb-4">Footer</h6>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-decoration-none text-dark">Icons</a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <h6 class="fw-bold mb-4">Use Cases</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">UI design</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">UX design</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Wireframing</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Diagramming</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Brainstorming</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Online whiteboard</a>
-                        </li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Team collaboration</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h6 class="fw-bold mb-4">Explore</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Design</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Prototyping</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Development features</a>
-                        </li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Design systems</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Collaboration
-                                features</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Design process</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h6 class="fw-bold mb-4">Resources</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Blog</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Best practices</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Colors</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Color wheel</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Support</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Developers</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Resource library</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-    </footer>
-@endsection
+</x-layout>

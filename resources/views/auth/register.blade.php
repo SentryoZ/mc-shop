@@ -13,7 +13,7 @@
 
             <div class="col-md-4 d-flex align-items-center justify-content-center">
                 <div class="w-100" style="max-width: 400px;">
-                    <h2 class="text-center mb-4">Create an Account</h2>
+                    <h2 class="text-center mb-4 fw-bold">Create an Account</h2>
                     <form action="/register" method="post">
                         @csrf
                         <div class="mb-3">
@@ -65,7 +65,8 @@
                         </div>
                     </form>
                     <p class="text-center mt-3">
-                        Already have an account? <a href="/login" class="text-decoration-none">Log in</a>
+                        Already have an account? <a href="{{ url('/login') }}" class="text-decoration-none">Log
+                            in</a>
                     </p>
                 </div>
             </div>
