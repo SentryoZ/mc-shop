@@ -26,7 +26,7 @@
                         </div>
                     </form>
                     <p class="text-center mt-3">
-                        <a href="{{ url('/login') }}" class="text-decoration-none">Back to Login</a>
+                        <a href="{{ route('login') }}" class="text-decoration-none">Back to Login</a>
                     </p>
                 </div>
             </div>

@@ -3,28 +3,24 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Exception;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class Authenticate extends Middleware
+class Authenticate
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (! $request->user()) {
-            if ($request->expectsJson()) {
-                return response()->json([
-                    'message' => 'Unauthorized',
-                    'status' => 401
-                ], 401);
-            }
-
-            return abort(401);
+        if (!$request->user()) {
+            throw new HttpException(401, 'Unauthorized');
         }
         return $next($request);
     }

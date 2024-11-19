@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -17,5 +18,13 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        $exceptions->render(function (HttpException $e, $request) {
+            $statusCode = $e->getStatusCode();
+            $message = $e->getMessage();
+            \Illuminate\Support\Facades\Log::info('Exception reported: ' . $e->getMessage());
+            return response()->view('errors.error', [
+                'message' => !empty($message) ? $message : 'Sorry, something went wrong',
+                'code' => $statusCode
+            ], $statusCode);
+        });
     })->create();
