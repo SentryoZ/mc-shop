@@ -16,7 +16,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function authenticate(StoreUserRequest $request): RedirectResponse
+    public function authenticate(Request $request): RedirectResponse
     {
         $credentials = $request->only('email', 'password');
         Log::debug($credentials);
