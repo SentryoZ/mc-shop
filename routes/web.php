@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\EmailVerificationController;
+use App\Http\Controllers\Auth\Logout;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,7 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login.pos
 
 // Forgot password routes
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index']);
+
+// Logout route
+Route::get('/logout', [Logout::class, 'index'])->name('logout');
+Route::post('/logout', [Logout::class, 'logout'])->name('logout.post');
