@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('components.layouts.auth.app')
 
 @section('title', 'Register')
 
@@ -20,52 +20,67 @@
                             <label for="name" class="form-label">Name</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                                <input type="text" class="form-control" id="name" placeholder="Enter your full name"
-                                    required>
-                                @error('name')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                    id="name" name="name" placeholder="Enter your full name"
+                                    value="{{ old('name') }}" required>
                             </div>
+                            @error('name')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email"
+                                <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                    id="email" name="email" placeholder="Enter your email" value="{{ old('email') }}"
                                     required>
-                                @error('email')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
                             </div>
+                            @error('email')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" class="form-control" id="password" placeholder="Create a password"
-                                    required>
-                                @error('password')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                    id="password" name="password" placeholder="Create a password" required>
                             </div>
+                            @error('password')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
+
                         <div class="mb-3">
-                            <label for="confirm-password" class="form-label">Confirm Password</label>
+                            <label for="password_confirmation" class="form-label">Confirm Password</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" class="form-control" id="confirm-password"
+                                <input type="password"
+                                    class="form-control @error('password_confirmation') is-invalid @enderror"
+                                    id="password_confirmation" name="password_confirmation"
                                     placeholder="Confirm your password" required>
-                                @error('confirm-password')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
                             </div>
+                            @error('password_confirmation')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary">Sign Up</button>
                         </div>
                     </form>
                     <p class="text-center mt-3">
-                        Already have an account? <a href="{{ url('/login') }}" class="text-decoration-none">Log
+                        Already have an account? <a href="{{ route('login') }}" class="text-decoration-none">Log
                             in</a>
                     </p>
                 </div>

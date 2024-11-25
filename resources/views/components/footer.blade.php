@@ -1,4 +1,4 @@
-<footer class="footer mt-auto bg-white shadow-lg">
+<footer class="footer mt-auto bg-white shadow-lg w-100" style="position: fixed; bottom:0; left:0;">
     <div class="container-xxl pt-4">
         <div class="row">
             <div class="col-md-3">
@@ -48,4 +48,5 @@
                 </ul>
             </div>
         </div>
+    </div>
 </footer>

@@ -5,6 +5,6 @@
             excepturi quae voluptatum distinctio nisi, voluptatibus accusamus ex nostrum similique quisquam, vel modi
             repellendus perferendis asperiores corporis mollitia!</p>
         <p class="mb-4">Check out our products</p>
-        <a href="{{ url('/products') }}" class="btn btn-primary">Products</a>
+        <a href="/products" wire:navigate class="btn btn-primary">Products</a>
     </div>
 </div>

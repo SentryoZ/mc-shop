@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->integer('quantity');
             $table->bigInteger('product_price')->nullable();
             $table->bigInteger('quantity')->nullable();
             $table->softDeletes();
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('order_items');
     }
 };
