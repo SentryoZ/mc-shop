@@ -20,15 +20,8 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request)
     {
-
+        DB::beginTransaction();
         try {
-            Log::info('Product creation request:', [
-                'name' => $request->name,
-                'description' => $request->description,
-                'price' => $request->price,
-                'image' => $request->image,
-                'commands' => $request->commands,
-            ]);
             // Save the product data
             $product = Product::create([
                 'name' => $request->name,
@@ -38,7 +31,7 @@ class ProductController extends Controller
 
             // Save the image
             $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
+            $request->image->move(storage_path('images'), $imageName);
 
             // Save the image path to the database
             ProductImages::create([
@@ -54,21 +47,13 @@ class ProductController extends Controller
                 'command' => $request->item_name
             ]);
 
-            // log the product creation
-            Log::info('Product created:', [
-                'name' => $product->name,
-                'description' => $product->description,
-                'price' => $product->price,
-                'image' => $imageName,
-                'commands' => $request->commands,
-            ]);
+            DB::commit();
 
             return redirect()->route('admin.dashboard')
                 ->with('success', 'Product created successfully!');
         } catch (\Exception $e) {
-            Log::error('Product creation failed:', [
-                'error' => $e->getMessage(),
-            ]);
+            DB::rollBack();
+            Log::error($e->getMessage());
             return redirect()->route('admin.dashboard')
                 ->with('error', 'Product creation failed!');
         }
