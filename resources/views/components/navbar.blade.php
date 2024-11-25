@@ -8,18 +8,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto d-flex align-items-center gap-3">
                 <li class="nav-item">
-                    <button type="button" class="btn btn-light d-flex align-items-center justify-content-center"
-                        style="height: 32px;">Products
-                    </button>
+                    <a wire:navigate.prevent href="{{ route('products') }}"
+                        class="btn btn-light d-flex align-items-center justify-content-center" style="height: 32px;">
+                        Products
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link px-3" href="#">Community</a>
                 </li>
                 @auth
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="{{ route('admin.dashboard') }}">Admin</a>
+                    </li>
+                @endauth
+                @auth
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{ asset('images/321.png') }}" class="img-fluid" alt="Responsive image"
+                            <img src="{{ asset('images/321.png') }}" alt="Responsive image"
                                 style="max-width: 100%; height: auto; width: 32px; border-radius: 50%">
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

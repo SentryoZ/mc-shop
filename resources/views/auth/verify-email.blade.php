@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('components.layouts.auth.app')
 
 @section('title', 'Verify Email')
 
@@ -6,7 +6,7 @@
     <div class="container-xl min-vh-100 d-flex align-items-center justify-content-center">
         <div class="text-center border rounded-3 p-4">
             <img src="{{ asset('images/7285521.png') }}" class="img-fluid" alt="Responsive image"
-                 style="max-width: 100%; height: auto; width: 200px; margin-bottom: 20px">
+                style="max-width: 100%; height: auto; width: 200px; margin-bottom: 20px">
             @if (session('email_resend'))
                 <div class="alert alert-success" role="alert">
                     A fresh verification link has been sent to your email address.
@@ -18,8 +18,7 @@
                 </form>
             @elseif (session('email_verified'))
                 <div class="alert alert-success" role="alert">
-                    Your email has been verified. Please login to continue. <a
-                        href="{{ route('login.post') }}">Login</a>
+                    Your email has been verified. Please login to continue. <a href="{{ route('login.post') }}">Login</a>
                 </div>
             @else
                 <h1>Please Verify Your Email</h1>
