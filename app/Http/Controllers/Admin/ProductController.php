@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\ProductImages;
 use App\Models\ProductCommands;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
